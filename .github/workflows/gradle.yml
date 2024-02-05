@@ -57,6 +57,17 @@ jobs:
 
     - name: Push Docker image to Docker Hub
       run: docker push kaoutarbelah/csca_projet_fr_bk_spring-app
+      # Start Docker Compose with the database service
+    - name: Start Docker Compose
+      run: docker-compose up -d
+
+    # Run unit tests
+    - name: Run tests
+      run: ./gradlew test --info
+
+    # Stop Docker Compose after tests
+    - name: Stop Docker Compose
+      run: docker-compose down
 
   dependency-submission:
 
