@@ -24,7 +24,6 @@ services:
 
   spring-app:
     image: kaoutarbelah/csca_projet_fr_bk_spring-app
-    container_name: spring_application
     depends_on:
       - postgres
     ports:
